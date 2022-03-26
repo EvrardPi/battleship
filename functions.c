@@ -260,14 +260,14 @@ void client() {
         getchar();
         fgets(tmp, 499, stdin);
 
-        if (tmp == sort) {
-            printf("\e[1;1H\e[2J""]]");
+        tmp[strcspn(tmp, "\n")] = 0;
+        sort[strcspn(sort, "\n")] = 0;
+        if (strcmp(tmp, sort) == 0) {
+            printf("\e[1;1H\e[2J");
             puts("Fin de connexion avec le serveur");
             exit(0);
         }
 
-        tmp[strcspn(tmp, "\n")] = 0;
-        sort[strcspn(sort, "\n")] = 0;
         go[strcspn(go, "\n")] = 0;
         if (strcmp(tmp,sort) == 0 || strcmp(tmp,go) == 0) {
             ratio = 667;

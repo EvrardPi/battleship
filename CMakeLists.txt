@@ -4,8 +4,6 @@ project(ratio VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(ratioserver server.c)
-add_executable(ratioclient client.c)
 add_executable(ratiolaunch launch.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
