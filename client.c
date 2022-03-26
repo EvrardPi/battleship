@@ -32,9 +32,18 @@ int main() {
         }
         send(sd, tmp, 499, 0);
         puts("En attente de la création du plateau de jeu...");
+
+        //RECEPTION DES DONNEES DU SERVEUR
         recv(sd, tempo, 499, 0);
+        recv(sd,array_game, sizeof(array_game), 0);
+        recv(sd, &lines, 499, 0);
+        recv(sd, &columns, 499, 0);
+        //RECEPTION DES DONNEES DU SERVEUR
+
         printf("\e[1;1H\e[2J"); // clear terminal
         printf("%s\n",tempo);
+        
+        rounds();
     } while (ratio != 667);
 
 }

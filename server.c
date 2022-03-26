@@ -50,7 +50,14 @@ int main() {
             generate_arena(lines, columns, number_of_boats);
             if (verifyArena == 1) {
                 strcpy(tempo,"La création du plateau est terminée, le jeu va pouvoir commencer.");
+
+                //ENVOI DES DONNEES AU CLIENT
                 send(clientSocket, tempo, 499, 0);
+                send(clientSocket, array_game, sizeof(array_game), 0);
+                send(clientSocket, &lines, 499, 0);
+                send(clientSocket, &columns, 499, 0);
+                //ENVOI DES DONNEES AU CLIENT
+
                 exit(0);
             }
         }
