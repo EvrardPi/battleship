@@ -10,7 +10,7 @@
 #include <arpa/inet.h>
 #include <string.h>
 
-#define PORT 9892
+#define PORT 9893
 #define HOST "127.0.0.1"
 #define MAX 250
 
@@ -184,10 +184,10 @@ void generate_arena (int lines, int columns, int number_of_boats) {
     verifyArena = 1;
 }
 
-void rounds() {
+void rounds(int sd) {
     puts("Indiquez la ligne que vous souhaitez toucher");
     scanf("%d", &input_x_beg);
-    puts("Indiquez la ligne que vous souhaitez toucher");
+    puts("Indiquez la colonne que vous souhaitez toucher");
     scanf("%d", &input_y);
 
     printf("Vous avez décidé de toucher la colonne %d de la ligne %d.\n",input_y,input_x_beg);
@@ -197,5 +197,5 @@ void rounds() {
     }
 
     array_game[input_x_beg-1][input_y-1] = 'M';
-    show_arena(lines, columns);
+    show_arena(lines, columns);    
 }

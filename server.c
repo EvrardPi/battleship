@@ -52,11 +52,14 @@ int main() {
                 strcpy(tempo,"La création du plateau est terminée, le jeu va pouvoir commencer.");
 
                 //ENVOI DES DONNEES AU CLIENT
-                send(clientSocket, tempo, 499, 0);
-                send(clientSocket, array_game, sizeof(array_game), 0);
-                send(clientSocket, &lines, 499, 0);
-                send(clientSocket, &columns, 499, 0);
+                send(clientSocket, tempo, 499, 0); //Confirmation fin de création du plateau
+                send(clientSocket, array_game, sizeof(array_game), 0); //Envoi de l'intégralité du tableau vers le client
+                send(clientSocket, &lines, 499, 0); //Envoi du nombre de lignes vers le client
+                send(clientSocket, &columns, 499, 0); //Envoi du nombre de colonnes vers le client
                 //ENVOI DES DONNEES AU CLIENT
+                recv(clientSocket, array_game, sizeof(array_game), 0);
+                show_arena(lines, columns);
+                getchar();
 
                 exit(0);
             }

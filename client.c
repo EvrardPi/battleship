@@ -42,8 +42,11 @@ int main() {
 
         printf("\e[1;1H\e[2J"); // clear terminal
         printf("%s\n",tempo);
-        
-        rounds();
+
+        for (int i = 0; i < 2; i++) {
+        rounds(sd);
+        send(sd, array_game, sizeof(array_game), 0);
+        }
     } while (ratio != 667);
 
 }
