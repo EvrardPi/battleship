@@ -16,7 +16,7 @@ int main() {
     puts("Serveur socket créé");
     puts("En attente d'une connexion client...");
 
-    listen(sd, 1); //deux clients max
+    listen(sd, 1); //un client max
 
     int sz = sizeof(struct sockaddr_in);
     int clientSocket = accept(sd, (struct sockaddr *) &client, (socklen_t*) &sz);

@@ -6,6 +6,7 @@ enable_testing()
 
 add_executable(ratioserver server.c)
 add_executable(ratioclient client.c)
+add_executable(ratiolaunch launch.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

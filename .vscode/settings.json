@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "in.h": "c"
+        "in.h": "c",
+        "signal.h": "c",
+        "string.h": "c",
+        "types.h": "c"
     }
 }
