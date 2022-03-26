@@ -161,10 +161,11 @@ void rounds(int sd) {
     printf("Vous avez décidé de toucher la colonne %d de la ligne %d.\n",input_y,input_x_beg);
 
     if (array_game[input_x_beg-1][input_y - 1] == 'O') {
-        puts("Bateau touché");
+        puts("Bateau coûlé");
+        array_game[input_x_beg-1][input_y-1] = 'C'; 
+    }   else {
+        puts("Dans l'eau");
     }
-
-    array_game[input_x_beg-1][input_y-1] = 'M';    
 }
 
 void serveur() {
