@@ -1,0 +1,35 @@
+[33mcommit cd4c4ae74478e5f1c43698d26d694a822b437524[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Umbrenite <blandin.arthur20@gmail.com>
+Date:   Sun Mar 27 00:30:05 2022 +0100
+
+    réglage des bateaux
+
+[33mcommit 0408c1ff36895a21845d885cf6e8883fd79756fa[m
+Author: EvrardPI <evrardpierrefm@gmail.com>
+Date:   Sun Mar 27 00:19:34 2022 +0100
+
+    correction du exit
+
+[33mcommit 6907e602c02a426802b0cbfb71aa1f545c186b86[m
+Author: Umbrenite <blandin.arthur20@gmail.com>
+Date:   Sat Mar 26 23:59:47 2022 +0100
+
+    Launch.c + usage de fonctions pour server/client
+
+[33mcommit e066fff5299524a24f0f02250256324d8a196812[m
+Author: Umbrenite <blandin.arthur20@gmail.com>
+Date:   Sat Mar 26 19:35:20 2022 +0100
+
+    Affichage en temps réel des bateaux dans le serveur
+
+[33mcommit 6e16fb55c255b118c07ecd7f4b5683594803f634[m
+Author: Umbrenite <blandin.arthur20@gmail.com>
+Date:   Sat Mar 26 16:08:13 2022 +0100
+
+    Ajout d'envoi de missiles + envoi du tableau vers le client
+
+[33mcommit e59692ac2f61c32dc125af340b47aaecde16c182[m
+Author: EvrardPI <evrardpierrefm@gmail.com>
+Date:   Sat Mar 26 00:31:00 2022 +0100
+
+    communication entre serveur et client

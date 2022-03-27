@@ -152,11 +152,16 @@ void generate_arena (int lines, int columns, int number_of_boats) {
     verifyArena = 1;
 }
 
-void rounds(int sd) {
+void rounds(int sd, int lines, int columns) {
+    printf("Votre tableau est de la taille [%d,%d]\n",lines,columns);
     puts("Indiquez la ligne que vous souhaitez toucher");
-    scanf("%d", &input_x_beg);
+    while(scanf("%d", &input_x_beg), input_x_beg > lines || input_x_beg <= 0) {
+        printf("Le chiffre que vous avez séléctionné ne correspond pas au nombre de lignes, choisissez un chiffre entre 1 et %d \n", lines);
+    }
     puts("Indiquez la colonne que vous souhaitez toucher");
-    scanf("%d", &input_y);
+    while(scanf("%d", &input_y), input_y > columns || input_y <= 0) {
+        printf("Le chiffre que vous avez séléctionné ne correspond pas au nombre de colonnes, choisissez un chiffre entre 1 et %d \n", columns);
+    }
 
     printf("Vous avez décidé de toucher la colonne %d de la ligne %d.\n",input_y,input_x_beg);
 
@@ -225,7 +230,7 @@ void serveur() {
                 send(clientSocket, &lines, 499, 0); //Envoi du nombre de lignes vers le client
                 send(clientSocket, &columns, 499, 0); //Envoi du nombre de colonnes vers le client
                 //ENVOI DES DONNEES AU CLIENT
-                for (size_t i = 0; i < 50; i++)
+                for (i = 0; i < 50; i++)
                 {
                     recv(clientSocket, array_game, sizeof(array_game), 0);
                     show_arena(lines, columns);
@@ -250,8 +255,8 @@ void client() {
         perror("Erreur de la fonction connect");
     }
 
-    if (send(sd, "ratio", 499, 0) == -1) {
-        exit(0); // ça quitte en bas la
+    if (send(sd, "", 499, 0) == -1) {
+        exit(0);
     }
 
     printf("\e[1;1H\e[2J"); // clear terminal
@@ -294,7 +299,7 @@ void client() {
         printf("%s\n",tempo);
 
         for (int i = 0; i < 50; i++) {
-        rounds(sd);
+        rounds(sd, lines, columns);
         send(sd, array_game, sizeof(array_game), 0);
         }
     } while (ratio != 667);
