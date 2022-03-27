@@ -225,10 +225,12 @@ void serveur() {
                 send(clientSocket, &lines, 499, 0); //Envoi du nombre de lignes vers le client
                 send(clientSocket, &columns, 499, 0); //Envoi du nombre de colonnes vers le client
                 //ENVOI DES DONNEES AU CLIENT
-                recv(clientSocket, array_game, sizeof(array_game), 0);
-                show_arena(lines, columns);
-                getchar();
-
+                for (size_t i = 0; i < 50; i++)
+                {
+                    recv(clientSocket, array_game, sizeof(array_game), 0);
+                    show_arena(lines, columns);
+                    getchar();
+                }
                 exit(0);
             }
         }
@@ -246,6 +248,10 @@ void client() {
 
     if (connect(sd, (struct sockaddr *) &cl, sizeof(struct sockaddr_in)) == -1) {
         perror("Erreur de la fonction connect");
+    }
+
+    if (send(sd, "ratio", 499, 0) == -1) {
+        exit(0); // ça quitte en bas la
     }
 
     printf("\e[1;1H\e[2J"); // clear terminal
@@ -266,6 +272,7 @@ void client() {
         if (strcmp(tmp, sort) == 0) {
             printf("\e[1;1H\e[2J");
             puts("Fin de connexion avec le serveur");
+            send(sd, tmp, 499, 0);
             exit(0);
         }
 
@@ -286,7 +293,7 @@ void client() {
         printf("\e[1;1H\e[2J"); // clear terminal
         printf("%s\n",tempo);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 50; i++) {
         rounds(sd);
         send(sd, array_game, sizeof(array_game), 0);
         }
